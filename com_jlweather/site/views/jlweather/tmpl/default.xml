@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Вертикально">
+		<message>Вертикальное отображение погоды</message>
+	</layout>
+	<state>
+		<name>Вертикально</name>
+		<description>Вертикальное отображение погоды</description>
+	</state>
+</metadata>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+	<name>JLWeather</name>
+	<creationDate>March, 2011</creationDate>
+	<author>JoomLine</author>
+	<authorEmail>anton@joomline.ru</authorEmail>
+	<authorUrl>http://www.joomline.net</authorUrl>
+	<copyright>Copyright 2010 JoomLine.net All rights reserved</copyright>
+	<license>http://joomline.net/licenzija-joomline.html</license>
+	<version>2.0</version>
+	<description>Отображает прогноз погоды на сайте</description>
+	
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>jlweather.php</filename>
+		<filename>img/_0_moon.gif</filename>
+		<filename>img/_0_sun.gif</filename>
+		<filename>img/_10_heavy_snow.gif</filename>
+		<filename>img/_1_moon_cl.gif</filename>
+		<filename>img/_1_sun_cl.gif</filename>
+		<filename>img/_255_NA.gif</filename>
+		<filename>img/_2_cloudy.gif</filename>
+		<filename>img/_3_pasmurno.gif</filename>
+		<filename>img/_4_short_rain.gif</filename>
+		<filename>img/_5_rain.gif</filename>
+		<filename>img/_6_lightning.gif</filename>
+		<filename>img/_7_hail.gif</filename>
+		<filename>img/_8_rain_swon.gif</filename>
+		<filename>img/_9_snow.gif</filename>
+		<filename>models/ajax.php</filename>
+		<filename>models/jlweather.php</filename>
+		<filename>views/index.html</filename>
+		<filename>views/jlweather/index.html</filename>
+		<filename>views/jlweather/view.html.php</filename>
+		<filename>views/jlweather/tmpl/default.php</filename>
+		<filename>views/jlweather/tmpl/default1.php</filename>
+		<filename>views/jlweather/tmpl/index.html</filename>
+		<filename>views/jlweather/tmpl/default.xml</filename>
+		<filename>views/jlweather/tmpl/default1.xml</filename>
+		<filename>views/jlweather/tmpl/default2.php</filename>
+		<filename>views/jlweather/tmpl/default2.xml</filename>
+	</files>
+		<languages folder="languages/site">
+			<language tag="en-GB">en-GB.com_jlweather.ini</language>
+			<language tag="ru-RU">ru-RU.com_jlweather.ini</language>
+			<language tag="uk-UA">uk-UA.com_jlweather.ini</language>
+		</languages>
+	<administration>
+		<menu>JLweather</menu>
+		<files folder="admin">
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>jlweather.php</filename>
+			<filename>views/jlweather/index.html</filename>
+			<filename>views/jlweather/view.html.php</filename>
+			<filename>views/jlweather/tmpl/default.php</filename>
+			<filename>views/jlweather/tmpl/index.html</filename>
+		</files>
+		<languages folder="languages/admin">
+			<language tag="en-GB">en-GB.com_jlweather.ini</language>
+			<language tag="ru-RU">ru-RU.com_jlweather.ini</language>
+			<language tag="uk-UA">uk-UA.com_jlweather.ini</language>
+		</languages>		
+	</administration>
+	
+</extension>

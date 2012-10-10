@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="module" group="content" method="upgrade">
+	<name>Mod JL Weather</name>
+	<creationDate>Feb 2011</creationDate>
+	<author>JoomLine</author>
+	<authorEmail>anton@joomline.ru</authorEmail>
+	<authorUrl>http://www.joomline.ru</authorUrl>
+	<copyright>(C) 2010 by Anton Voynov (http://www.joomline.ru)</copyright>
+	<license>GNU/GPL: http://www.gnu.org/copyleft/gpl.html</license>
+	<version>2.1</version>
+	<description>модуль погоды</description>
+	<files>
+		<filename module="mod_jlweather">mod_jlweather.php</filename>
+		<filename>index.html</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+        <filename>helper.php</filename> 
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="city" type="text" label="Город" default="633"/>
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

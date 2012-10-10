@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Горизонтально">
+		<message>Горизонтальное отображение погоды</message>
+	</layout>
+	<state>
+		<name>Горизонтально</name>
+		<description>Горизонтальное отображение погоды</description>
+	</state>
+</metadata>

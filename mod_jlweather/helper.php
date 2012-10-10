@@ -1,0 +1,129 @@
+<?php
+ /**
+ * @package plugin mail sync. Ya
+ * @author Artem Zhukov (artem@joomline.ru)
+ * @version 1.2
+ * @copyright (C) 2008-2012 by JoomLine (http://www.joomline.net)
+ * @license JoomLine: http://joomline.net/licenzija-joomline.html
+ *
+*/
+
+// no direct access
+defined('_JEXEC') or die;
+if (!function_exists("getForecastXML")) {
+	function getForecastXML($cid = '692', $params)
+	{
+
+		$hoffset = $params->get('hoffset') * 3600;
+		$days = array();
+		$xml = file_get_contents("http://xml.weather.co.ua/1.2/forecast/$cid?dayf=5&lang=ru");
+		$xml = simplexml_load_string($xml);
+		$cityname = (string)$xml->city->name;
+		$xml0 = file_get_contents("http://export.yandex.ru/inflect.xml?name=" . urlencode($cityname));
+		$xml0 = simplexml_load_string($xml0);
+		$cityname = (string)$xml0->inflection[0];
+
+		$weekdays[0] = "Вс";
+		$weekdays[1] = "Пн";
+		$weekdays[2] = "Вт";
+		$weekdays[3] = "Ср";
+		$weekdays[4] = "Чт";
+		$weekdays[5] = "Пт";
+		$weekdays[6] = "Сб";
+		$clouds[0] = 'Ясно,<br> без осадков';
+		$clouds[1] = 'Переменная <br>облачность';
+		$clouds[2] = 'Облачно';
+		$clouds[3] = 'Пасмурно';
+		$clouds[4] = 'Небольшой <br>дождь';
+		$clouds[5] = 'Дождь';
+		$clouds[6] = 'Дождь, гроза';
+		$clouds[7] = 'Град';
+		$clouds[8] = 'Мокрый снег';
+		$clouds[9] = 'Снег';
+		$clouds[10] = 'Снегопад';
+
+		$current['t'] = (string)$xml->current->t;
+		$current['w'] = (string)$xml->current->w;
+		$current['p'] = (string)$xml->current->pict;
+		$cur_cloud = (string)$xml->current->cloud;
+		$cur_cloud = floor($cur_cloud / 10);
+		$current['c'] = $clouds[$cur_cloud];
+
+		foreach ($xml->forecast->day as $fpart) {
+			$forecast = array();
+			$attr = $fpart->attributes();
+			$forecast['t']['min'] = (string)$fpart->t->min;
+			$forecast['t']['min'] = $forecast['t']['min'] > 0 ? "+" . $forecast['t']['min'] : $forecast['t']['min'];
+			$forecast['t']['max'] = (string)$fpart->t->max;
+			$forecast['t']['max'] = $forecast['t']['max'] > 0 ? "+" . $forecast['t']['max'] : $forecast['t']['max'];
+			$forecast['p']['min'] = (string)$fpart->p->min;
+			$forecast['p']['max'] = (string)$fpart->p->max;
+			$forecast['w']['min'] = (string)$fpart->wind->min;
+			$forecast['w']['max'] = (string)$fpart->wind->max;
+			$forecast['w']['rumb'] = (string)$fpart->wind->rumb;
+			$forecast['h']['min'] = (string)$fpart->hmid->min;
+			$forecast['h']['max'] = (string)$fpart->hmid->max;
+			$forecast['pict'] = (string)$fpart->pict;
+			$date = (string)$attr['date'];
+			$hour = (string)$attr['hour'];
+			$date0 = strtotime($date . " " . $hour . ":00");
+			$forecast['timestamp'] = $date0;
+			$date = strtotime($date);
+			$dayofweek = date('w', $date);
+			$date = $weekdays[$dayofweek] . " " . date('d.m', $date);
+			$forecast['date'] = $date;
+			$forecast['hour'] = $hour;
+			if ($forecast['timestamp'] > time() + $hoffset) {
+				$days[] = $forecast;
+			}
+
+		}
+
+		return array($cityname, $current, $days);
+	}
+
+}
+
+if (!function_exists("jlwgetItemid")) {
+	function jlwgetItemid($component)
+	{
+		if (!function_exists('realGetItemid')) {
+			function realGetItemid($component)
+			{
+				$component = & JComponentHelper::getComponent('com_jlweather');
+
+				echo '<pre>'.print_r($component,true).'</pre>';
+
+				if (!isset($component->id)) return 0;
+				$menus = &JSite::getMenu();
+				$items = $menus->getItems('component_id', $component->id);
+				$Itemid = (count($items) > 0) ? $items[0]->id : 0;
+				unset($items);
+				return $Itemid;
+			}
+		}
+		$cache = & JFactory::getCache('mod_jlweather');
+		return $cache->call('realGetItemid', $component);
+	}
+}
+jimport ('joomla.html.parameter');
+$component = JComponentHelper::getComponent('com_jlweather');
+$cparams = new JParameter($component->params);
+$cid = $params->get('city');
+$menus = &JSite::getMenu();
+$items = $menus->getItems('link', 'index.php?option=com_jlweather&view=jlweather');
+$Itemid = (count($items) > 0) ? $items[0]->id : 0;
+//$Itemid = jlwgetItemid('com_jlweather');
+
+$cache = & JFactory::getCache('mod_jlweather');
+$cache->setCaching(1);
+$cache->setLifeTime($cparams->get('cachetime') * 3600);
+$dpartname[3] = 'Ночью';
+$dpartname[9] = 'Утром';
+$dpartname[15] = 'Днем';
+$dpartname[21] = 'Вечером';
+
+
+list($city, $current, $forecast) = $cache->call('getForecastXML', $cid, $cparams);
+//echo "<pre>" . print_r($forecast, true) . "</pre>";
+
