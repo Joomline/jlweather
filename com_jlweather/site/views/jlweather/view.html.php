@@ -22,9 +22,7 @@ class JlweatherViewJlweather extends JView
 		$cache = & JFactory::getCache('com_jlweather');
 		$cache->setCaching(1);
 		$cache->setLifeTime($params->get('cachetime')*3600);
-		$mainframe = JFactory::getDocument();
-		$mainframe->setTitle($params->get('title'));
-
+				
 		$model = &$this->getModel();
 		$city_list = explode(",",$params->get('citylist'));
 		if (is_array($city_list)) {
@@ -46,6 +44,12 @@ class JlweatherViewJlweather extends JView
 		$this->assignRef( 'city_list',	$city_list );
 		$this->assignRef( 'city',	$city );
 		$this->assignRef( 'forecast',	$forecast );
+		
+		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
+		$title = $params->get('title').' для города '.$city;		
+		$mainframe = JFactory::getDocument();
+		$mainframe->setTitle($title);
+		
 		parent::display($tpl);
 	}
 }

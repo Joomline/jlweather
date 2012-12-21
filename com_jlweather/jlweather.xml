@@ -7,11 +7,12 @@
 	<authorUrl>http://www.joomline.net</authorUrl>
 	<copyright>Copyright 2010 JoomLine.net All rights reserved</copyright>
 	<license>http://joomline.net/licenzija-joomline.html</license>
-	<version>2.0</version>
+	<version>2.1</version>
 	<description>Отображает прогноз погоды на сайте</description>
 	
 	<files folder="site">
 		<filename>controller.php</filename>
+		<filename>router.php</filename>
 		<filename>index.html</filename>
 		<filename>jlweather.php</filename>
 		<filename>img/_0_moon.gif</filename>
@@ -64,5 +65,21 @@
 			<language tag="uk-UA">uk-UA.com_jlweather.ini</language>
 		</languages>		
 	</administration>
-	
+	<config>
+		<fieldset name="details"
+			label="Config"
+		>
+		<field 
+			name="title" 
+			type="text" 
+			size="50" 
+			label="TITLE" 
+			description="DESC_TITELE" default="Погода"/>
+		
+		<field name="hoffset" type="text" label="TIME_DIFFERENCE" default="4" description="" />
+		<field name="cachetime" type="text" label="LIFETIME_CACHE" default="3" description="" />
+		<field type="spacer" />
+		<field name="citylist" type="text" label="CITY" default="692#Кемерово,23#Киев"/>
+		</fieldset>	
+	</config>
 </extension>

@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<h2><?=JText::_('SELECT_CITY') ?></h2>
 	<?php foreach ($this->city_list as $city) : ?>
 		<?php if ($city[0] != $this->selcity ) { ?>
-			<?php $city_html[] = "<a href='".Jroute::_('index.php?option=com_jlweather&cid='.$city[0])."'>".$city[1]."</a>"; ?>
+			<?php $city_html[] = "<a href='".Jroute::_('index.php?option=com_jlweather&cid='.$city[2])."'>".$city[1]."</a>"; ?>
 		<?php } else { ?>
 			<?php $city_html[] = $city[1]?>
 		<?php } ?>

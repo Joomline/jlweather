@@ -29,7 +29,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<a style="font-size:8pt" href="<?=JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $cid)?>">Прогноз для <?=$city?></a>
+			<a style="font-size:8pt" href="<?=JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>">Прогноз для <?=$city?></a>
 		</td>
 	</tr>
 		<div style="text-align: right;">
