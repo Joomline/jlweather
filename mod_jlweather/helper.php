@@ -16,7 +16,7 @@ if (!function_exists("getForecastXML")) {
 
 		$hoffset = $params->get('hoffset') * 3600;
 		$days = array();
-		$xml = file_get_contents("http://xml.weather.co.ua/1.2/forecast/$cid?dayf=5&lang=ru");
+		$xml = file_get_contents("http://xml.weather.ua/1.2/forecast/$cid?dayf=5&lang=ru");
 		$xml = simplexml_load_string($xml);
 		$cityname = (string)$xml->city->name;
 		$xml0 = file_get_contents("http://export.yandex.ru/inflect.xml?name=" . urlencode($cityname));
