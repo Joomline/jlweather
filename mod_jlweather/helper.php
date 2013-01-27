@@ -117,7 +117,7 @@ $Itemid = (count($items) > 0) ? $items[0]->id : 0;
 
 $cache = & JFactory::getCache('mod_jlweather');
 $cache->setCaching(1);
-$cache->setLifeTime($cparams->get('cachetime') * 3600);
+$cache->setLifeTime($cparams->get('cachetime') * 60);
 $dpartname[3] = 'Ночью';
 $dpartname[9] = 'Утром';
 $dpartname[15] = 'Днем';

@@ -21,7 +21,7 @@ class JlweatherViewJlweather extends JViewLegacy
 		$params = JcomponentHelper::getParams('com_jlweather');
 		$cache = & JFactory::getCache('com_jlweather');
 		$cache->setCaching(1);
-		$cache->setLifeTime($params->get('cachetime')*3600);
+		$cache->setLifeTime($params->get('cachetime')*60);
 				
 		$model = &$this->getModel();
 		$city_list = explode(",",$params->get('citylist'));
@@ -46,7 +46,8 @@ class JlweatherViewJlweather extends JViewLegacy
 		$this->assignRef( 'forecast',	$forecast );
 		
 		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
-		$title = $params->get('title').' для города '.$city;		
+		$currentMenuName = isset(JSite::getMenu()->getActive()->title) ? JSite::getMenu()->getActive()->title : '';
+		$title = $currentMenuName.' '.$params->get('title').' для города '.$city;		
 		$mainframe = JFactory::getDocument();
 		$mainframe->setTitle($title);
 		$app = JFactory::getApplication(); 
