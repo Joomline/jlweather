@@ -14,7 +14,7 @@
  **/ 
 jimport('joomla.application.component.controller');
 
-class JlweatherController extends JController
+class JlweatherController extends JControllerLegacy
 {
 	function display()
 	{

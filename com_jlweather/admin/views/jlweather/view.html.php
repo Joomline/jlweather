@@ -17,7 +17,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 jimport( 'joomla.application.component.view' );
 
-class JlweatherViewJlweather extends JView
+class JlweatherViewJlweather extends JViewLegacy
 {
 	function display($tpl = null)
 	{

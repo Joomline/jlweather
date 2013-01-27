@@ -24,7 +24,7 @@ jimport('joomla.application.component.controller');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class JlweatherController extends JController
+class JlweatherController extends JControllerLegacy
 {
 	/**
 	 * Method to display the view

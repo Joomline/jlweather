@@ -15,32 +15,9 @@
 		<filename>router.php</filename>
 		<filename>index.html</filename>
 		<filename>jlweather.php</filename>
-		<filename>img/_0_moon.gif</filename>
-		<filename>img/_0_sun.gif</filename>
-		<filename>img/_10_heavy_snow.gif</filename>
-		<filename>img/_1_moon_cl.gif</filename>
-		<filename>img/_1_sun_cl.gif</filename>
-		<filename>img/_255_NA.gif</filename>
-		<filename>img/_2_cloudy.gif</filename>
-		<filename>img/_3_pasmurno.gif</filename>
-		<filename>img/_4_short_rain.gif</filename>
-		<filename>img/_5_rain.gif</filename>
-		<filename>img/_6_lightning.gif</filename>
-		<filename>img/_7_hail.gif</filename>
-		<filename>img/_8_rain_swon.gif</filename>
-		<filename>img/_9_snow.gif</filename>
-		<filename>models/ajax.php</filename>
-		<filename>models/jlweather.php</filename>
-		<filename>views/index.html</filename>
-		<filename>views/jlweather/index.html</filename>
-		<filename>views/jlweather/view.html.php</filename>
-		<filename>views/jlweather/tmpl/default.php</filename>
-		<filename>views/jlweather/tmpl/default1.php</filename>
-		<filename>views/jlweather/tmpl/index.html</filename>
-		<filename>views/jlweather/tmpl/default.xml</filename>
-		<filename>views/jlweather/tmpl/default1.xml</filename>
-		<filename>views/jlweather/tmpl/default2.php</filename>
-		<filename>views/jlweather/tmpl/default2.xml</filename>
+		<folder>img</folder>
+		<folder>models</folder>
+		<folder>views</folder>
 	</files>
 		<languages folder="languages/site">
 			<language tag="en-GB">en-GB.com_jlweather.ini</language>
@@ -54,10 +31,7 @@
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<filename>jlweather.php</filename>
-			<filename>views/jlweather/index.html</filename>
-			<filename>views/jlweather/view.html.php</filename>
-			<filename>views/jlweather/tmpl/default.php</filename>
-			<filename>views/jlweather/tmpl/index.html</filename>
+			<folder>views/</folder>
 		</files>
 		<languages folder="languages/admin">
 			<language tag="en-GB">en-GB.com_jlweather.ini</language>

@@ -17,7 +17,7 @@ defined('_JEXEC') or die();
 
 jimport( 'joomla.application.component.model' );
 
-class JlweatherModelJlweather extends JModel
+class JlweatherModelJlweather extends JModelLegacy
 {
 	function getForecastXML($cid='692')
 	{
