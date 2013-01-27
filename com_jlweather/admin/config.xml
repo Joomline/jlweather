@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<config>
-		<fieldset name="details"
-			label="Config"
-		>
-		<field 
-			name="title" 
-			type="text" 
-			size="50" 
-			label="TITLE" 
-			description="DESC_TITELE" default="Погода"/>
-		
-		<field name="hoffset" type="text" label="TIME_DIFFERENCE" default="4" description="" />
-		<field name="cachetime" type="text" label="LIFETIME_CACHE" default="3" description="" />
-		<field type="spacer" />
-		<field name="citylist" type="text" label="CITY" default="692#Кемерово,23#Киев"/>
+		<fieldset name="settings" label="COM_JLWEATHER_FIELDSET_CONFIG_LABEL">		
+			<field name="hoffset" type="text" label="TIME_DIFFERENCE" default="4" description="" />
+			<field name="cachetime" type="text" label="LIFETIME_CACHE" default="3" description="" />
+			<field type="spacer" />
+			<field name="citylist" type="text" size="100"  label="CITY" default="692#Кемерово,23#Киев"/>
 		</fieldset>	
 	</config>

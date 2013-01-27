@@ -21,7 +21,7 @@ class JlweatherViewJlweather extends JView
 {
 	function display($tpl = null)
 	{
-		JToolBarHelper::title(   JText::_( 'Погода' ), 'generic.png' );
+		JToolBarHelper::title(   JText::_( 'COM_JLWEATHER_TITLE' ), 'generic.png' );
 		JToolBarHelper::preferences( 'com_jlweather',200 );
 		parent::display($tpl);
 	}
