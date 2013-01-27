@@ -49,7 +49,9 @@ class JlweatherViewJlweather extends JView
 		$title = $params->get('title').' для города '.$city;		
 		$mainframe = JFactory::getDocument();
 		$mainframe->setTitle($title);
-		
+		$app = JFactory::getApplication(); 
+		$pathway = $app->getPathway(); 
+		$pathway->addItem(JText::_('FORECAST_CITY') .$this->city, '/component/jlweather/');
 		parent::display($tpl);
 	}
 }
