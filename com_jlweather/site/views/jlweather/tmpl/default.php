@@ -2,10 +2,10 @@
  /**
  * JLweather - components of the weather for joomla.
  *
- * @version 1.0
+ * @version 2.2
  * @package JLweather
- * @author Anton Voynov (anton@joomline.ru)
- * @copyright (C) 2010 by Anton Voynov(http://www.joomline.ru)
+ * @author Kunicin Vadim (vadim@joomline.ru) Anton Voynov (anton@joomline.ru)
+ * @copyright (C) 2013 by Joomline(http://www.joomline.ru)
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
  *
  * If you fork this to create your own project,
@@ -14,7 +14,7 @@
  **/ 
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php if (count($this->city_list) > 1) : ?>
-	<h2><?=JText::_('SELECT_CITY') ?></h2>
+
 	<?php foreach ($this->city_list as $city) : ?>
 		<?php if ($city[0] != $this->selcity ) { ?>
 			<?php $city_html[] = "<a href='".Jroute::_('index.php?option=com_jlweather&cid='.$city[1])."'>".$city[1]."</a>"; ?>
@@ -22,9 +22,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			<?php $city_html[] = $city[1]?>
 		<?php } ?>
 	<?php endforeach; ?>
-	<?=implode(' | ',$city_html); ?>
+	
+<div><?=JText::_('SELECT_CITY') ?> <?=implode(' | ',$city_html); ?></div>
 <?php endif; ?>
-<h3><?=JText::_('FORECAST_CITY') ?><?=$this->city?></h3>
+<h1><?=JText::_('FORECAST_CITY') ?><?=$this->city?></h1>
 <?php
 $dayparts[3]= JText::_("NIGHT");
 $dayparts[9]= JText::_("MORNING");
@@ -46,7 +47,7 @@ $dayparts[21]= JText::_("EVENING");
 	<?php foreach ($daypart as $dp=>$data) : ?>
 	<tr style="padding-top:10px;" >
 		<td width="55"><?=$dayparts[$dp]?></td>
-		<td><img src="/components/com_jlweather/img/<?=$data['pict']?>" alt="."></td>
+		<td><img src="<?php echo $this->baseurl ?>/components/com_jlweather/img/<?=$data['pict']?>" alt="."></td>
 		<td style="font-size:30px;" width="50"><?=$data['t']['min']?></td>
 		<td style="font-size:30px;">...</td>
 		<td style="font-size:30px;" width="50"><?=$data['t']['max']?></td>
