@@ -35,15 +35,17 @@ $dayparts[21]= JText::_("EVENING");
 ?>
 		<style type="text/css">
 			.jlwdate {
+				border-bottom: 1px solid #E3E3E3;
 				display: block;
-				width:100%;
-				background-color:#f5f5dc;
-				padding:5px;
+				padding: 5px;
+				width: 100%;
 			}
+			.jlwitem { margin-bottom: 20px }
 		</style>
 <?php foreach ($this->forecast as $date=>$daypart) : ?>
-	<h1 class="jlwdate"><?=$date?></h1>
-<table cellpadding="5" cellspacing="5" border="0">
+<div class="jlwitem">
+	<h3 class="jlwdate"><?=$date?></h3>
+    <table cellpadding="5" cellspacing="5" border="0">
 	<?php foreach ($daypart as $dp=>$data) : ?>
 	<tr style="padding-top:10px;" >
 		<td width="55"><?=$dayparts[$dp]?></td>
@@ -60,9 +62,8 @@ $dayparts[21]= JText::_("EVENING");
 		</td>
 	</tr>
 	<?php endforeach; ?>
-
-</table>
-
+    </table>
+</div>
 <?php endforeach; ?>
 
 <?php //echo "<pre>" . print_r($this->forecast, true) . "</pre>";?>
