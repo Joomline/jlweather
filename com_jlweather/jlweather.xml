@@ -3,12 +3,12 @@
 	<name>JLWeather</name>
 	<creationDate>March, 2011</creationDate>
 	<author>JoomLine</author>
-	<authorEmail>anton@joomline.ru</authorEmail>
-	<authorUrl>http://www.joomline.net</authorUrl>
-	<copyright>Copyright 2010 JoomLine.net All rights reserved</copyright>
-	<license>http://joomline.net/licenzija-joomline.html</license>
-	<version>2.1</version>
-	<description>Отображает прогноз погоды на сайте</description>
+	<authorEmail>sale@joomline.ru</authorEmail>
+	<authorUrl>http://www.joomline.ru</authorUrl>
+	<copyright>Copyright 2013 JoomLine.ru All rights reserved</copyright>
+	<license>GNU/GPL v.3 or later.</license>
+	<version>2.5</version>
+	<description>COM_JLWEATHER_XML_DESCRIPTION</description>
 	
 	<files folder="site">
 		<filename>controller.php</filename>
@@ -20,40 +20,26 @@
 		<folder>views</folder>
 	</files>
 		<languages folder="languages/site">
-			<language tag="en-GB">en-GB.com_jlweather.ini</language>
-			<language tag="ru-RU">ru-RU.com_jlweather.ini</language>
-			<language tag="uk-UA">uk-UA.com_jlweather.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_jlweather.ini</language>
+			<language tag="ru-RU">ru-RU/ru-RU.com_jlweather.ini</language>
+			<language tag="uk-UA">uk-UA/uk-UA.com_jlweather.ini</language>
 		</languages>
 	<administration>
-		<menu>JLweather</menu>
+		<menu>COM_JLWEATHER_MAIN_MENU</menu>
 		<files folder="admin">
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<filename>jlweather.php</filename>
-			<folder>views/</folder>
+			<folder>views</folder>
 		</files>
 		<languages folder="languages/admin">
-			<language tag="en-GB">en-GB.com_jlweather.ini</language>
-			<language tag="ru-RU">ru-RU.com_jlweather.ini</language>
-			<language tag="uk-UA">uk-UA.com_jlweather.ini</language>
+			<language tag="ru-RU">ru-RU/ru-RU.com_jlweather.sys.ini</language>
+            <language tag="ru-RU">ru-RU/ru-RU.com_jlweather.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_jlweather.sys.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_jlweather.ini</language>
+			<language tag="uk-UA">uk-UA/uk-UA.com_jlweather.sys.ini</language>
+            <language tag="uk-UA">uk-UA/uk-UA.com_jlweather.ini</language>
 		</languages>		
 	</administration>
-	<config>
-		<fieldset name="details"
-			label="Config"
-		>
-		<field 
-			name="title" 
-			type="text" 
-			size="50" 
-			label="TITLE" 
-			description="DESC_TITELE" default="Погода"/>
-		
-		<field name="hoffset" type="text" label="TIME_DIFFERENCE" default="4" description="" />
-		<field name="cachetime" type="text" label="LIFETIME_CACHE" default="3" description="" />
-		<field type="spacer" />
-		<field name="citylist" type="text" label="CITY" default="692#Кемерово,23#Киев"/>
-		</fieldset>	
-	</config>
 </extension>
