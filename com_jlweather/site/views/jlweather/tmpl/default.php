@@ -42,7 +42,7 @@ $dayparts[21]= JText::_("EVENING");
 			}
 			.jlwitem { margin-bottom: 20px }
 		</style>
-<?php foreach ($this->forecast as $date=>$daypart) : ?>
+<?php if (count($this->forecast)>0) { foreach ($this->forecast as $date=>$daypart) : ?>
 <div class="jlwitem">
 	<h3 class="jlwdate"><?=$date?></h3>
     <table cellpadding="5" cellspacing="5" border="0">
@@ -64,7 +64,11 @@ $dayparts[21]= JText::_("EVENING");
 	<?php endforeach; ?>
     </table>
 </div>
-<?php endforeach; ?>
+<?php endforeach; } else { ?>
+<div class="jlwitem">
+	<h3 class="jlwdate"><?=JText::_('NO_INFO') ?></h3>
+</div>
+<?php } ?>
 
 <?php //echo "<pre>" . print_r($this->forecast, true) . "</pre>";?>
 	<div style="text-align: right;">
