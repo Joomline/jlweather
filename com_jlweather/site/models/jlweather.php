@@ -36,6 +36,7 @@ class JlweatherModelJlweather extends JModelLegacy
 	    $weekdays[5] = JText::_("FRIDAY");
 	    $weekdays[6] = JText::_("SATURDAY");
 
+		if (count($xml->forecast->day)>0){
 	    foreach ($xml->forecast->day as $fpart) {
 		    $forecast = array();
 		    $attr = $fpart->attributes();
@@ -63,6 +64,7 @@ class JlweatherModelJlweather extends JModelLegacy
 		    }
 
 	    }
+		} else {$days=array();}
 
 		return array($cityname,$days);
 	}
