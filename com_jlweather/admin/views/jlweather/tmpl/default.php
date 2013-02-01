@@ -5,14 +5,14 @@
 <p><?=JText::_('DESC_DEVELOPERS') ?></p>
 <p><?=JText::_('COM_JLWEATHER_DESC_SETTINGS') ?></p>
 <p></p>
-    <h1>Donate (Пожертвования)</h1>
+    <h1>Donate (РџРѕР¶РµСЂС‚РІРѕРІР°РЅРёСЏ)</h1>
 <div class="donate">
-    <h2>Для России и Украины</h2>
+    <h2>Р”Р»СЏ Р РѕСЃСЃРёРё Рё РЈРєСЂР°РёРЅС‹</h2>
     <table class="adminlist">
         <thead>
         <tr>
             <th width="33%">Webmoney</th>
-            <th width="33%">Яндекс деньги</th>
+            <th width="33%">РЇРЅРґРµРєСЃ РґРµРЅСЊРіРё</th>
             <th>PayPal</th>
         </tr>
         </thead>
@@ -29,7 +29,7 @@
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id" value="WKKRA6YE9K6DU">
-                    <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal вЂ” The safer, easier way to pay online.">
                     <img alt="" border="0" src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" width="1" height="1">
                 </form>
             </td>
@@ -68,7 +68,7 @@
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="CFTSDVVQP4QL6" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="PayPal - The safer, easier way to pay online!" /> <img src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" alt="" width="1" height="1" border="0" /></form>
             </td>
             <td align="center">
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="WKKRA6YE9K6DU" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="PayPal — The safer, easier way to pay online." /> <img src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" alt="" width="1" height="1" border="0" /></form>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="WKKRA6YE9K6DU" /> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="PayPal вЂ” The safer, easier way to pay online." /> <img src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" alt="" width="1" height="1" border="0" /></form>
             </td>
         </tr>
         </tbody>
