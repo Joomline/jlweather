@@ -108,7 +108,7 @@ if (!function_exists("jlwgetItemid")) {
 }
 jimport ('joomla.html.parameter');
 $component = JComponentHelper::getComponent('com_jlweather');
-$cparams = new JParameter($component->params);
+$cparams = new JRegistry($component->params);
 $cid = $params->get('city');
 $menus = &JSite::getMenu();
 $items = $menus->getItems('link', 'index.php?option=com_jlweather&view=jlweather');
