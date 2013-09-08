@@ -72,5 +72,5 @@ $dayparts[21]= JText::_("EVENING");
 
 <?php //echo "<pre>" . print_r($this->forecast, true) . "</pre>";?>
 	<div style="text-align: right;">
-		<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.ru/">Расширения для Joomla</a>
+		<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.ru/">Расширения Joomla</a>
 	</div>

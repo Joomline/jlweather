@@ -1,20 +1,21 @@
 <?php
- /**
- * @package plugin mail sync. Ya
- * @author Artem Zhukov (artem@joomline.ru)
- * @version 1.2
- * @copyright (C) 2008-2012 by JoomLine (http://www.joomline.net)
- * @license JoomLine: http://joomline.net/licenzija-joomline.html
+/**
+ * Mod JLweather
  *
-*/
+ * @version 2.3
+ * @author Anton Voynov (anton@joomline.ru)
+ * @copyright (C) 2011 by Anton Voynov(http://www.joomline.ru)
+ * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+ **/
 
 // no direct access
 defined('_JEXEC') or die;
 if (!function_exists("getForecastXML")) {
 	function getForecastXML($cid = '692', $params)
 	{
-
+		//echo print_r($params,true);
 		$hoffset = $params->get('hoffset') * 3600;
+		//echo $hoffset;
 		$days = array();
 		$xml = file_get_contents("http://xml.weather.ua/1.2/forecast/$cid?dayf=5&lang=ru");
 		$xml = simplexml_load_string($xml);
@@ -30,11 +31,11 @@ if (!function_exists("getForecastXML")) {
 		$weekdays[4] = "Чт";
 		$weekdays[5] = "Пт";
 		$weekdays[6] = "Сб";
-		$clouds[0] = 'Ясно,<br> без осадков';
-		$clouds[1] = 'Переменная <br>облачность';
+		$clouds[0] = 'Ясно, без осадков';
+		$clouds[1] = 'Переменная облачность';
 		$clouds[2] = 'Облачно';
 		$clouds[3] = 'Пасмурно';
-		$clouds[4] = 'Небольшой <br>дождь';
+		$clouds[4] = 'Небольшой дождь';
 		$clouds[5] = 'Дождь';
 		$clouds[6] = 'Дождь, гроза';
 		$clouds[7] = 'Град';
@@ -64,6 +65,11 @@ if (!function_exists("getForecastXML")) {
 			$forecast['h']['min'] = (string)$fpart->hmid->min;
 			$forecast['h']['max'] = (string)$fpart->hmid->max;
 			$forecast['pict'] = (string)$fpart->pict;
+			$cloud = (string)$fpart->cloud;
+			$cloud = floor($cloud / 10);
+			$forecast['cloud'] = $clouds[(string)$cloud];
+			$forecast['hoffset'] = $hoffset;
+			
 			$date = (string)$attr['date'];
 			$hour = (string)$attr['hour'];
 			$date0 = strtotime($date . " " . $hour . ":00");
@@ -73,13 +79,13 @@ if (!function_exists("getForecastXML")) {
 			$date = $weekdays[$dayofweek] . " " . date('d.m', $date);
 			$forecast['date'] = $date;
 			$forecast['hour'] = $hour;
-			if ($forecast['timestamp'] > time() + $hoffset) {
+			//if ($forecast['timestamp'] > time() + $hoffset) {
 				$days[] = $forecast;
-			}
+			//}
 
 		}
 
-		return array($cityname, $current, $days);
+		return array($cityname, $current, $days, $hoffset);
 	}
 
 }
@@ -92,7 +98,7 @@ if (!function_exists("jlwgetItemid")) {
 			{
 				$component = & JComponentHelper::getComponent('com_jlweather');
 
-				echo '<pre>'.print_r($component,true).'</pre>';
+				//echo '<pre>'.print_r($component,true).'</pre>';
 
 				if (!isset($component->id)) return 0;
 				$menus = &JSite::getMenu();
@@ -108,14 +114,16 @@ if (!function_exists("jlwgetItemid")) {
 }
 jimport ('joomla.html.parameter');
 $component = JComponentHelper::getComponent('com_jlweather');
-$cparams = new JRegistry($component->params);
+$cparams = new JParameter($component->params);
 $cid = $params->get('city');
-$menus = &JSite::getMenu();
+$enablednow = $params->get('enablednow');
+//$menus = JSite::getMenu();
+$menus = JFactory::getApplication()->getMenu();
 $items = $menus->getItems('link', 'index.php?option=com_jlweather&view=jlweather');
 $Itemid = (count($items) > 0) ? $items[0]->id : 0;
 //$Itemid = jlwgetItemid('com_jlweather');
 
-$cache = & JFactory::getCache('mod_jlweather');
+$cache = JFactory::getCache('mod_jlweather');
 $cache->setCaching(1);
 $cache->setLifeTime($cparams->get('cachetime') * 60);
 $dpartname[3] = 'Ночью';
@@ -124,6 +132,6 @@ $dpartname[15] = 'Днем';
 $dpartname[21] = 'Вечером';
 
 
-list($city, $current, $forecast) = $cache->call('getForecastXML', $cid, $cparams);
+list($city, $current, $forecast, $hoffset) = $cache->call('getForecastXML', $cid, $cparams);
 //echo "<pre>" . print_r($forecast, true) . "</pre>";
 

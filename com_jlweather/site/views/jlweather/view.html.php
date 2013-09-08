@@ -18,13 +18,20 @@ class JlweatherViewJlweather extends JViewLegacy
 {
 	function display($tpl = null)
 	{
+		$mainframe = JFactory::getApplication();
 		$params = JcomponentHelper::getParams('com_jlweather');
-		$cache = & JFactory::getCache('com_jlweather');
+		$citymenu = $mainframe->getMenu()->getActive()->params;
+		if ($citymenu->get('citymenu')!='') {
+			$tmp_city_list = $citymenu->get('citymenu');
+		} else {
+			$tmp_city_list = $params->get('citylist');
+		}
+		$cache = JFactory::getCache('com_jlweather');
 		$cache->setCaching(1);
 		$cache->setLifeTime($params->get('cachetime')*60);
-				
-		$model = &$this->getModel();
-		$city_list = explode(",",$params->get('citylist'));
+		
+		$model = $this->getModel();
+		$city_list = explode(",",$tmp_city_list);
 		if (is_array($city_list)) {
 			$city_list = array_map('trim',$city_list);
 		} else {
@@ -46,11 +53,12 @@ class JlweatherViewJlweather extends JViewLegacy
 		$this->assignRef( 'forecast',	$forecast );
 		
 		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
-		$currentMenuName = isset(JSite::getMenu()->getActive()->title) ? JSite::getMenu()->getActive()->title : '';
+		$app = JFactory::getApplication();
+		$currentMenuName = isset($app->getMenu()->getActive()->title) ? $app->getMenu()->getActive()->title : '';
 		$title = $currentMenuName.' '.$params->get('title').' для города '.$city;		
 		$mainframe = JFactory::getDocument();
 		$mainframe->setTitle($title);
-		$app = JFactory::getApplication(); 
+		//$app = JFactory::getApplication(); 
 		$pathway = $app->getPathway(); 
 		$pathway->addItem(JText::_('FORECAST_CITY') .$this->city, '/component/jlweather/');
 		parent::display($tpl);

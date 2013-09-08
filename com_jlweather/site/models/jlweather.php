@@ -23,6 +23,7 @@ class JlweatherModelJlweather extends JModelLegacy
 	{
 		$params = JcomponentHelper::getParams('com_jlweather');
 		$hoffset = $params->get('hoffset')*3600;
+		
 		$days = array();
 		$xml = file_get_contents("http://xml.weather.ua/1.2/forecast/$cid?dayf=5&lang=ru");
 	    $xml = simplexml_load_string($xml);

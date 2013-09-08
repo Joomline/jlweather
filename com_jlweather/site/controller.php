@@ -16,9 +16,9 @@ jimport('joomla.application.component.controller');
 
 class JlweatherController extends JControllerLegacy
 {
-	function display()
+	public function display($cachable = false, $urlparams = array())
 	{
-		parent::display();
+		parent::display($cachable);
 	}
 
 	function ajax() {
