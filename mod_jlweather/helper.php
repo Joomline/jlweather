@@ -8,6 +8,7 @@
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
  **/
 
+
 // no direct access
 defined('_JEXEC') or die;
 if (!function_exists("getForecastXML")) {
@@ -114,7 +115,7 @@ if (!function_exists("jlwgetItemid")) {
 }
 jimport ('joomla.html.parameter');
 $component = JComponentHelper::getComponent('com_jlweather');
-$cparams = new JParameter($component->params);
+$cparams = new JRegistry($component->params);
 $cid = $params->get('city');
 $enablednow = $params->get('enablednow');
 //$menus = JSite::getMenu();
