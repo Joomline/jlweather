@@ -20,7 +20,7 @@ require_once (JPATH_COMPONENT.DS.'controller.php');
 
 // Require specific controller if requested
 if($controller = JRequest::getVar('controller')) {
-	require_once (JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php');
+	require_once (JPATH_COMPONENT.'/controllers/'.$controller.'.php');
 }
 
 // Create the controller
