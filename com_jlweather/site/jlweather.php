@@ -16,7 +16,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Require the base controller
-require_once (JPATH_COMPONENT.DS.'controller.php');
+require_once (JPATH_COMPONENT.'/controller.php');
 
 // Require specific controller if requested
 if($controller = JRequest::getVar('controller')) {
