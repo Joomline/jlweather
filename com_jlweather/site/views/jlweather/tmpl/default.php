@@ -23,9 +23,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<?php } ?>
 	<?php endforeach; ?>
 	
-<div><?=JText::_('SELECT_CITY') ?> <?=implode(' | ',$city_html); ?></div>
+<div><?php echo JText::_('SELECT_CITY') ?> <?php echo implode(' | ',$city_html); ?></div>
 <?php endif; ?>
-<h1><?=JText::_('FORECAST_CITY') ?><?=$this->city?></h1>
+<h1><?php echo JText::_('FORECAST_CITY') ?><?php echo $this->city?></h1>
 <?php
 $dayparts[3]= JText::_("NIGHT");
 $dayparts[9]= JText::_("MORNING");
@@ -44,21 +44,21 @@ $dayparts[21]= JText::_("EVENING");
 		</style>
 <?php if (count($this->forecast)>0) { foreach ($this->forecast as $date=>$daypart) : ?>
 <div class="jlwitem">
-	<h3 class="jlwdate"><?=$date?></h3>
+	<h3 class="jlwdate"><?php echo $date?></h3>
     <table cellpadding="5" cellspacing="5" border="0">
 	<?php foreach ($daypart as $dp=>$data) : ?>
 	<tr style="padding-top:10px;" >
-		<td width="55"><?=$dayparts[$dp]?></td>
-		<td><img src="<?php echo $this->baseurl ?>/components/com_jlweather/img/<?=$data['pict']?>" alt="."></td>
-		<td style="font-size:30px;" width="50"><?=$data['t']['min']?></td>
+		<td width="55"><?php echo $dayparts[$dp]?></td>
+		<td><img src="<?php echo $this->baseurl ?>/components/com_jlweather/img/<?php echo $data['pict']?>" alt="."></td>
+		<td style="font-size:30px;" width="50"><?php echo $data['t']['min']?></td>
 		<td style="font-size:30px;">...</td>
-		<td style="font-size:30px;" width="50"><?=$data['t']['max']?></td>
+		<td style="font-size:30px;" width="50"><?php echo $data['t']['max']?></td>
 		<td style="font-size:90%">
 			<?php if (($data['p']['min']+$data['p']['max']) > 0) : ?>
-				<?=JText::_('PRESSURE') ?> <?=$data['p']['min']?>-<?=$data['p']['max']?> <?=JText::_('MM') ?><br/>
+				<?php echo JText::_('PRESSURE') ?> <?php echo $data['p']['min']?>-<?php echo $data['p']['max']?> <?php echo JText::_('MM') ?><br/>
 			<?php endif; ?>
-			<?=JText::_('WIND') ?> <?=$data['w']['min']?>-<?=$data['w']['max']?> <?=JText::_('MC') ?> <br/>
-			<?=JText::_('RELATIVE_HUMIDITY') ?>  <?=$data['h']['min']?>-<?=$data['h']['max']?> %
+			<?php echo JText::_('WIND') ?> <?php echo $data['w']['min']?>-<?php echo $data['w']['max']?> <?php echo JText::_('MC') ?> <br/>
+			<?php echo JText::_('RELATIVE_HUMIDITY') ?>  <?php echo $data['h']['min']?>-<?php echo $data['h']['max']?> %
 		</td>
 	</tr>
 	<?php endforeach; ?>
@@ -66,7 +66,7 @@ $dayparts[21]= JText::_("EVENING");
 </div>
 <?php endforeach; } else { ?>
 <div class="jlwitem">
-	<h3 class="jlwdate"><?=JText::_('NO_INFO') ?></h3>
+	<h3 class="jlwdate"><?php echo JText::_('NO_INFO') ?></h3>
 </div>
 <?php } ?>
 

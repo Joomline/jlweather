@@ -15,9 +15,9 @@
 <table>
 	<?php if ($enablednow==0) { ?>
 	<tr valign="middle">
-		<?if ($current['t']) : ?><td nowrap><span style="font-size:16pt"><?=$current['t']?> <sup>o</sup> </span></td><? endif;?>
-		<td nowrap><span style="font-size:8pt;margin-left:5px;"><?=$current['c']?></span></td>
-		<td rowspan="2"><img src="/components/com_jlweather/img/<?=$current['p']?>" alt="."></td>
+		<?if ($current['t']) : ?><td nowrap><span style="font-size:16pt"><?php echo $current['t']?> <sup>o</sup> </span></td><? endif;?>
+		<td nowrap><span style="font-size:8pt;margin-left:5px;"><?php echo $current['c']?></span></td>
+		<td rowspan="2"><img src="/components/com_jlweather/img/<?php echo $current['p']?>" alt="."></td>
 		<td rowspan="2">
 			<table>
 			<?php
@@ -59,7 +59,7 @@
 	<?php } ?>
 	<tr>
 		<td colspan="2">
-			<a style="font-size:8pt" href="<?=JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>">Прогноз для <?=$city?></a>
+			<a style="font-size:8pt" href="<?php echo JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>">Прогноз для <?php echo $city?></a>
 		</td>
 	</tr>
 		<div style="text-align: right;">
