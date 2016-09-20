@@ -8,7 +8,7 @@
 	<copyright>(C) 2010-2016 by Anton Voynov (http://www.joomline.ru)</copyright>
 	<license>GNU/GPL: http://www.gnu.org/copyleft/gpl.html</license>
 	<version>2.5.0</version>
-	<description>Модуль погоды.</description>
+	<description>JL_WEATHER_DESC</description>
 	<files>
 		<folder>data</folder>
 		<folder>tmpl</folder>
@@ -16,20 +16,24 @@
 		<filename>index.html</filename>
 		<filename module="mod_jlweather">mod_jlweather.php</filename>
 	</files>
+	<languages folder="language">
+        <language tag="en-GB">en-GB/en-EN.mod_jlweather.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.mod_jlweather.ini</language>
+    </languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
 				<field
 						name="city"
 						type="text"
-						label="ID города"
+						label="JL_WEATHER_SELECT_CITY"
 						default=""
 						filter="integer"
 				/>
 				<field
 						name="city_name"
 						type="text"
-						label="Название города"
+						label="JL_WEATHER_CITY_NAME"
 						default=""
 						filter="string"
 				/>
@@ -37,38 +41,38 @@
 						name="key"
 						type="text"
 						default=""
-						label="Ключ API"
-						description="Ключ API openweathermap.org"
+						label="JL_WEATHER_API_KEY"
+						description="JL_WEATHER_API_KEY_DESC"
 				/>
 				<field
 						name="cachetime"
 						type="text"
 						default=""
-						label="Период обновления"
-						description="Период обновления в часах"
+						label="JL_WEATHER_API_CACHETIME"
+						description="JL_WEATHER_API_CACHETIME_DESC"
 						filter="integer"
 				/>
 				<field
 						name="hoffset"
 						type="text"
 						default=""
-						label="Часовая разница"
-						description="Часовая разница в часах"
+						label="JL_WEATHER_API_HOFFSET"
+						description="JL_WEATHER_API_HOFFSET_DESC"
 						filter="integer"
 				/>
 				<field
 						name="enablednow"
 						type="list" default="0"
-						label="Прогноз на сейчас"
-						description="Использовать погоду из блока сейчас">
+						label="JL_WEATHER_API_ENABLEDNOW"
+						description="JL_WEATHER_API_ENABLEDNOW_DESC">
 				  <option value="0">Нет</option>
 				  <option value="1">Да</option>
 				</field>
 				<field
 						name="enabled_five_days"
 						type="list" default="0"
-						label="Прогноз на 5 дней"
-						description="Использовать прогноз на 5 дней">
+						label="JL_WEATHER_API_FIVE_DAYS"
+						description="JL_WEATHER_API_FIVE_DAYS_DESC">
 				  <option value="0">Нет</option>
 				  <option value="1">Да</option>
 				</field>
@@ -78,7 +82,6 @@
 						label="Module Class Suffix"
 						description="PARAMMODULECLASSSUFFIX"
 				/>
-
 			</fieldset>
 		</fields>
 	</config>
