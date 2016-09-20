@@ -21,11 +21,9 @@ class JlweatherViewJlweather extends JViewLegacy
 		$mainframe = JFactory::getApplication();
 		$params = JcomponentHelper::getParams('com_jlweather');
 		$citymenu = $mainframe->getMenu()->getActive()->params;
-		if ($citymenu->get('citymenu')!='') {
-			$tmp_city_list = $citymenu->get('citymenu');
-		} else {
-			$tmp_city_list = $params->get('citylist');
-		}
+
+		$tmp_city_list = $citymenu->get('citymenu')!='' ? $citymenu->get('citymenu') : $params->get('citylist');
+
 		$cache = JFactory::getCache('com_jlweather');
 		$cache->setCaching(1);
 		$cache->setLifeTime($params->get('cachetime')*60);
@@ -34,8 +32,6 @@ class JlweatherViewJlweather extends JViewLegacy
 		$city_list = explode(",",$tmp_city_list);
 		if (is_array($city_list)) {
 			$city_list = array_map('trim',$city_list);
-		} else {
-			$city_list[0] = trim($city_list);
 		}
 
 		if (count($city_list)>0) {
@@ -44,21 +40,46 @@ class JlweatherViewJlweather extends JViewLegacy
 			}
 		}
 		$reqcity = JRequest::getInt('cid',0);
-		$selcity = $reqcity >0 ? $reqcity : $city_list[0][0] ;
-		list($city,$forecast) = $cache->call( array( 'JlweatherModelJlweather', 'getForecastXML') , $selcity  );
-//		list($city,$forecast) = $model->getForecastXML($selcity);
+
+		$city = '';
+		if($reqcity > 0){
+			foreach ($city_list as $k => $v){
+				if($v[0] == $reqcity){
+					$city = $v[1];
+				}
+			}
+			$selcity = $reqcity;
+		}
+		else{
+			$city = $city_list[0][1];
+			$selcity = $city_list[0][0];
+		}
+
+		$forecast = $cache->call( array( 'JlweatherModelJlweather', 'getForecastXML') , $selcity  );
+
+		$daysOfWeek = array(
+			0 => JText::_('SUNDAY'),
+			1 => JText::_('MONDAY'),
+			2 => JText::_('TUESDAY'),
+			3 => JText::_('WEDNESDAY'),
+			4 => JText::_('THURSDAY'),
+			5 => JText::_('FRIDAY'),
+			6 => JText::_('SATURDAY')
+		);
+
 		$this->assignRef( 'selcity',	$selcity );
 		$this->assignRef( 'city_list',	$city_list );
 		$this->assignRef( 'city',	$city );
 		$this->assignRef( 'forecast',	$forecast );
-		
+		$this->assignRef( 'daysOfWeek',	$daysOfWeek );
+
 		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
 		$app = JFactory::getApplication();
 		$currentMenuName = isset($app->getMenu()->getActive()->title) ? $app->getMenu()->getActive()->title : '';
 		$title = $currentMenuName.' '.$params->get('title').' для города '.$city;		
 		$mainframe = JFactory::getDocument();
 		$mainframe->setTitle($title);
-		//$app = JFactory::getApplication(); 
+
 		$pathway = $app->getPathway(); 
 		$pathway->addItem(JText::_('FORECAST_CITY') .$this->city, '/component/jlweather/');
 		parent::display($tpl);

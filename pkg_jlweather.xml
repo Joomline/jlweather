@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<extension type="package" version="2.5">
+<extension type="package" version="2.5" method="upgrade">
     <name>com_jlweather</name>
     <author>Joomline</author>
 	<packagename>jlweather</packagename>
-    <creationDate>21.01.2013</creationDate>
-    <copyright>© 2013. All rights reserved.</copyright>
+    <creationDate>20.09.2016</creationDate>
+    <copyright>© 2010-2016. All rights reserved.</copyright>
     <license>GNU/GPL v.3 or later.</license>
 	<packager>JoomLine</packager>
 	<packagerurl>http://joomline.ru</packagerurl>
-    <version>2.6.2</version>
+    <version>3.0.0</version>
     <description>Packet forecast JL Weather</description>
 <files>
-        <file type="component" method="upgrade" client="site">com_jlweather.zip</file>
-        <file type="module" method="upgrade" client="site">mod_jlweather.zip</file>
+        <file type="component" client="site">com_jlweather.zip</file>
+        <file type="module"client="site">mod_jlweather.zip</file>
 </files>
 </extension>

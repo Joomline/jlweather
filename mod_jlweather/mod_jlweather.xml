@@ -1,30 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="module" group="content" method="upgrade">
 	<name>Mod JL Weather</name>
-	<creationDate>Feb 2011</creationDate>
+	<creationDate>20.09.2016</creationDate>
 	<author>JoomLine</author>
 	<authorEmail>anton@joomline.ru</authorEmail>
 	<authorUrl>http://www.joomline.ru</authorUrl>
-	<copyright>(C) 2010 by Anton Voynov (http://www.joomline.ru)</copyright>
+	<copyright>(C) 2010-2016 by Anton Voynov (http://www.joomline.ru)</copyright>
 	<license>GNU/GPL: http://www.gnu.org/copyleft/gpl.html</license>
-	<version>2.3.1</version>
-	<description>модуль погоды</description>
+	<version>2.5.0</version>
+	<description>Модуль погоды.</description>
 	<files>
-		<filename module="mod_jlweather">mod_jlweather.php</filename>
+		<folder>data</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
 		<filename>index.html</filename>
-        <filename>tmpl/default.php</filename>
-        <filename>tmpl/index.html</filename>
-        <filename>helper.php</filename> 
+		<filename module="mod_jlweather">mod_jlweather.php</filename>
 	</files>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="city" type="text" label="Город" default="633"/>
-				<field name="enablednow" type="list" default="0" label="Использовать погоду из блока сейчас" description="Использовать погоду из блока сейчас">
+				<field
+						name="city"
+						type="text"
+						label="ID города"
+						default=""
+						filter="integer"
+				/>
+				<field
+						name="city_name"
+						type="text"
+						label="Название города"
+						default=""
+						filter="string"
+				/>
+				<field
+						name="key"
+						type="text"
+						default=""
+						label="Ключ API"
+						description="Ключ API openweathermap.org"
+				/>
+				<field
+						name="cachetime"
+						type="text"
+						default=""
+						label="Период обновления"
+						description="Период обновления в часах"
+						filter="integer"
+				/>
+				<field
+						name="hoffset"
+						type="text"
+						default=""
+						label="Часовая разница"
+						description="Часовая разница в часах"
+						filter="integer"
+				/>
+				<field
+						name="enablednow"
+						type="list" default="0"
+						label="Прогноз на сейчас"
+						description="Использовать погоду из блока сейчас">
 				  <option value="0">Нет</option>
 				  <option value="1">Да</option>
 				</field>
-				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+				<field
+						name="enabled_five_days"
+						type="list" default="0"
+						label="Прогноз на 5 дней"
+						description="Использовать прогноз на 5 дней">
+				  <option value="0">Нет</option>
+				  <option value="1">Да</option>
+				</field>
+				<field
+						name="moduleclass_sfx"
+						type="text" default=""
+						label="Module Class Suffix"
+						description="PARAMMODULECLASSSUFFIX"
+				/>
+
 			</fieldset>
 		</fields>
 	</config>

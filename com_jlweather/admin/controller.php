@@ -31,8 +31,4 @@ class JlweatherController extends JControllerLegacy
 	 *
 	 * @access	public
 	 */
-	function display()
-	{
-		parent::display();
-	}
 }

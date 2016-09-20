@@ -10,44 +10,92 @@
 
 // no direct access
 
-
+$current = $data['current'];
+$fiveDays = $data['fiveDays'];
+$enablednow = count($current) > 0;
+$enabledFiveDays = count($fiveDays) > 0;
 ?>
 <table>
-	<?php if ($enablednow==0) { ?>
+	<?php if ($enablednow) { ?>
 	<tr valign="middle">
-		<?if ($current['t']) : ?><td nowrap><span style="font-size:16pt"><?php echo $current['t']?> <sup>o</sup> </span></td><? endif;?>
-		<td nowrap><span style="font-size:8pt;margin-left:5px;"><?php echo $current['c']?></span></td>
-		<td rowspan="2"><img src="/components/com_jlweather/img/<?php echo $current['p']?>" alt="."></td>
-		<td rowspan="2">
-			<table>
-			<?php
-				for ($i=1;$i<=3;$i++) {
-					echo "<tr><td nowrap>".$dpartname[$forecast[$i]['hour']].": </td><td nowrap align='right'>". $forecast[$i]['t']['min'] ."</td><td nowrap>...</td><td nowrap>". $forecast[$i]['t']['max']."</td></tr>\n";
-				}
-			?>
-			</table>
+		<td><img src="<?php echo $current['icon']?>" alt="."></td>
+		<td nowrap><span style="font-size:16pt"><?php echo round($current['temp'],0); ?> <sup>o</sup>C </span></td>
+		<td nowrap><span style="font-size:8pt;margin-left:5px;"><?php echo $current['description']?></span></td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Давление: <?php echo $current['pressure']?> мм рт. ст.</span>
 		</td>
-	</tr>
-	<?php } else { ?>
-	<tr valign="middle">
-		<?php 
-		$t_t = date("H",time()+$hoffset);
-		$tt = $t_t{0}==0 ? str_replace("0","",date("H",time()+$hoffset)) : date("H",time()+$hoffset);
-		$dt = date("d",time()+$hoffset);		
-		foreach ($forecast as $daypart) {			
-			if (date("d",$daypart['timestamp']) == $dt) {
-			//echo '<pre>'.print_r($daypart,true).'</pre>';
-				if (( $daypart['hour'] >= 3) && ($tt >= $daypart['hour']) && ($tt < 9) ) {
-					echo '<img src="/components/com_jlweather/img/'.$daypart['pict'].'" alt=".">'.' <b>'.$daypart['t']['min'].'...'.$daypart['t']['max'].'&deg;C</b> '.$daypart['cloud'];
-				} elseif (( $daypart['hour'] >= 9) && ($tt >= $daypart['hour']) && ($tt < 15) ) {
-					echo '<img src="/components/com_jlweather/img/'.$daypart['pict'].'" alt=".">'.' <b>'.$daypart['t']['min'].'...'.$daypart['t']['max'].'&deg;C</b> '.$daypart['cloud'];
-				} elseif (( $daypart['hour'] >= 15) && ($tt >= $daypart['hour']) && ($tt < 21) ) {
-					echo '<img src="/components/com_jlweather/img/'.$daypart['pict'].'" alt=".">'.' <b>'.$daypart['t']['min'].'...'.$daypart['t']['max'].'&deg;C</b> '.$daypart['cloud'];
-				} elseif (( $daypart['hour'] >= 21) && ($tt >= $daypart['hour']) && ($tt < 24)) {
-					echo '<img src="/components/com_jlweather/img/'.$daypart['pict'].'" alt=".">'.' <b>'.$daypart['t']['min'].'...'.$daypart['t']['max'].'&deg;C</b> '.$daypart['cloud'];
-				} elseif (($tt >= 0) && ($tt < 3)) {				
-					echo '<img src="/components/com_jlweather/img/'.$daypart['pict'].'" alt=".">'.' <b>'.$daypart['t']['min'].'...'.$daypart['t']['max'].'&deg;C</b> '.$daypart['cloud'];
-				}
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Влажность: <?php echo $current['humidity']?> %</span>
+		</td>
+		</tr>
+
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Минимальная температура: <?php echo round($current['temp_min'],0)?> &deg;C</span>
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Максимальначя температура: <?php echo round($current['temp_max'],0)?> &deg;C</span>
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Видимость: <?php echo $current['visibility']?> м</span>
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Скорость ветра: <?php echo $current['wind_speed']?> м/с</span>
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Направление ветра: <?php echo $current['wind_deg_text']?></span>
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Восход: <?php echo $current['sunrise']?></span>
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="3">
+			<span style="font-size:8pt;margin-left:5px;"> Закат: <?php echo $current['sunset']?></span>
+		</td>
+		</tr>
+
+	<?php } if($enabledFiveDays) { ?>
+
+		<?php foreach ($fiveDays as $k => $v) { ?>
+			<tr>
+			<td colspan="3">
+				<h4><?php echo $k; ?></h4>
+			</td>
+			</tr>
+			<?php
+			foreach ($v as $key => $daypart) {
+				?>
+			<tr style="font-size:8pt;margin-left:5px;">
+				<td colspan="2">
+					<?php echo $daypart['time']; ?>
+				</td>
+				<td>
+					<img src="<?php echo $daypart['icon']; ?>" alt=".">
+				</td>
+			<tr style="font-size:8pt;margin-left:5px;">
+			<tr>
+				<td colspan="3">
+					<div><?php echo JString::ucfirst($daypart['description']); ?></div>
+					<div>Температура: <?php echo round($daypart['temp_min'],0); ?> ... <?php echo round($daypart['temp_max'],0); ?>&deg;C</div>
+					<div>Ветер <?php echo $daypart['wind_deg_text']; ?>, <?php echo $daypart['wind_speed']; ?> м/с</div>
+				</td>
+			</tr>
+			<?php
 			}
 		}
 		
@@ -55,11 +103,11 @@
 		
 		
 		?>
-	</tr>	
+
 	<?php } ?>
 	<tr>
 		<td colspan="2">
-			<a style="font-size:8pt" href="<?php echo JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>">Прогноз для <?php echo $city?></a>
+			<a style="font-size:8pt" href="<?php echo JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>">Прогноз для <?php echo $params->get('city_name', ''); ?></a>
 		</td>
 	</tr>
 		<div style="text-align: right;">
