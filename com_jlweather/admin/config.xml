@@ -5,8 +5,8 @@
 					name="key"
 					type="text"
 					default=""
-					label="Ключ API"
-					description="Ключ API openweathermap.org"
+					label="COM_JL_WEATHER_API_KEY"
+					description="COM_JL_WEATHER_API_KEY_DESC"
 			/>
 			<field
 					name="hoffset"
@@ -25,16 +25,16 @@
 			<field
 					name="enablednow"
 					type="list" default="0"
-					label="Прогноз на сейчас"
-					description="Использовать погоду из блока сейчас">
+					label="COM_JL_WEATHER_API_ENABLEDNOW"
+					description="COM_JL_WEATHER_API_ENABLEDNOW_DESC">
 				<option value="0">Нет</option>
 				<option value="1">Да</option>
 			</field>
 			<field
 					name="enabled_five_days"
 					type="list" default="0"
-					label="Прогноз на 5 дней"
-					description="Использовать прогноз на 5 дней">
+					label="COM_JL_WEATHER_API_FIVE_DAYS"
+					description="COM_JL_WEATHER_API_FIVE_DAYS_DESC">
 				<option value="0">Нет</option>
 				<option value="1">Да</option>
 			</field>
