@@ -61,31 +61,31 @@ class JlweatherModelJlweather extends JModelLegacy
     {
         $text = '';
         if($windDeg >= 0 && $windDeg < 22.5){
-            $text = 'северный';
+            $text = JText::_('COM_JL_WEATHER_NORTERN');
         }
         else if($windDeg >= 22.5 && $windDeg < 67.5){
-            $text = 'северо-восточный';
+            $text = JText::_('COM_JL_WEATHER_NORTEASTERN');
         }
         else if($windDeg >= 67.5 && $windDeg < 112.5){
-            $text = 'восточный';
+            $text = JText::_('COM_JL_WEATHER_EAST');
         }
         else if($windDeg >= 112.5 && $windDeg < 157.5){
-            $text = 'юго-восточный';
+            $text = JText::_('COM_JL_WEATHER_SOUTHEAST');
         }
         else if($windDeg >= 157.5 && $windDeg < 202.5){
-            $text = 'южный';
+            $text = JText::_('COM_JL_WEATHER_SOUTH');
         }
         else if($windDeg >= 202.5 && $windDeg < 247.5){
-            $text = 'юго-западный';
+            $text = JText::_('COM_JL_WEATHER_SOUTHWEST');
         }
         else if($windDeg >= 247.5 && $windDeg < 292.5){
-            $text = 'западный';
+            $text = JText::_('COM_JL_WEATHER_WEST');
         }
         else if($windDeg >= 292.5 && $windDeg < 337.5){
-            $text = 'северо-западный';
+            $text = JText::_('COM_JL_WEATHER_NORTHWEST');
         }
         else if($windDeg >= 337.5 && $windDeg <= 360){
-            $text = 'северный';
+            $text = JText::_('COM_JL_WEATHER_NORTERN');
         }
 
         return $text;

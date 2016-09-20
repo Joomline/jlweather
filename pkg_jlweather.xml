@@ -11,7 +11,7 @@
     <version>3.0.0</version>
     <description>Packet forecast JL Weather</description>
 <files>
-        <file type="component" client="site">com_jlweather.zip</file>
-        <file type="module"client="site">mod_jlweather.zip</file>
+        <file type="component" id="com_jlweather" client="site">com_jlweather.zip</file>
+        <file type="module" id="mod_jlweather" client="site">mod_jlweather.zip</file>
 </files>
 </extension>

@@ -34,30 +34,24 @@ $dayparts[21] = JText::_("EVENING");
 
 ?>
 <style type="text/css">
-    .jlwdate {
-        border-bottom: 1px solid #E3E3E3;
-        display: block;
-        padding: 5px;
-        width: 100%;
-    }
-
-    .jlwitem {
-        margin-bottom: 20px
-    }
+    .jlwdate {border-bottom: 1px solid #E3E3E3; display: block; padding: 5px; width: 100%;}
+    .jlwitem {margin-bottom: 20px;}
+    .comjlweathertemp{font-size:30px;}
+    .comjlweathertext{font-size:90%;}
 </style>
 <?php if (count($this->forecast['current']) > 0) { ?>
     <?php $data = $this->forecast['current']; ?>
     <div class="jlwitem">
-        <h3 class="jlwdate">Cейчас</h3>
+        <h3 class="jlwdate"><?php echo JText::_('COM_JL_WEATHER_NOW') ?></h3>
         <table cellpadding="5" cellspacing="5" border="0">
             <tr style="padding-top:10px;">
                 <td>
                     <img src="<?php echo $data['icon']; ?>" alt=".">
                 </td>
-                <td style="font-size:30px;" width="50"><?php if($data['temp_min']>0){echo '+';} echo round($data['temp_min'],0); ?></td>
-                <td style="font-size:30px;">...</td>
-                <td style="font-size:30px;" width="50"><?php if($data['temp_max']>0){echo '+';} echo round($data['temp_max'],0) ?></td>
-                <td style="font-size:90%">
+                <td class="comjlweathertemp" width="50"><?php if($data['temp_min']>0){echo '+';} echo round($data['temp_min'],0); ?></td>
+                <td class="comjlweathertemp">...</td>
+                <td class="comjlweathertemp" width="50"><?php if($data['temp_max']>0){echo '+';} echo round($data['temp_max'],0) ?></td>
+                <td class="comjlweathertext">
 
                     <?php echo JText::_('PRESSURE') .' '. $data['pressure'] .' '. JText::_('MM') ?>
                     <br/>
@@ -65,8 +59,8 @@ $dayparts[21] = JText::_("EVENING");
                     <br/>
                     <?php echo JText::_('RELATIVE_HUMIDITY') . ' ' . $data['humidity'] ?> %<br/>
 <!--                    Видимость: --><?php //echo $data['visibility'] ?><!-- м<br/>-->
-                    Восход: <?php echo $data['sunrise'] ?><br/>
-                    Закат: <?php echo $data['sunset'] ?><br/>
+                    <?php echo JText::_('COM_JL_WEATHER_TEMP_SUNRISE') ?> <?php echo $data['sunrise'] ?><br/>
+                    <?php echo JText::_('COM_JL_WEATHER_TEMP_SUNSET') ?> <?php echo $data['sunset'] ?><br/>
                 </td>
             </tr>
         </table>
@@ -84,12 +78,12 @@ $dayparts[21] = JText::_("EVENING");
                         <td>
                             <img src="<?php echo $data['icon']; ?>" alt=".">
                         </td>
-                        <td style="font-size:30px;" width="50"><?php if($data['temp_min']>0){echo '+';} echo round($data['temp_min'],0) ?></td>
-                        <td style="font-size:30px;">...</td>
-                        <td style="font-size:30px;" width="50"><?php if($data['temp_max']>0){echo '+';} echo round($data['temp_max'],0) ?></td>
-                        <td style="font-size:90%">
+                        <td class="comjlweathertemp" width="50"><?php if($data['temp_min']>0){echo '+';} echo round($data['temp_min'],0) ?></td>
+                        <td class="comjlweathertemp">...</td>
+                        <td class="comjlweathertemp" width="50"><?php if($data['temp_max']>0){echo '+';} echo round($data['temp_max'],0) ?></td>
+                        <td class="comjlweathertext">
 
-                            <?php echo JText::_('PRESSURE') ?><?php echo $data['pressure'] ?><?php echo JText::_('MM') ?>
+                            <?php echo JText::_('PRESSURE') ?> <?php echo $data['pressure'] ?> <?php echo JText::_('MM') ?>
                             <br/>
 
                             <?php echo JText::_('WIND') . ' ' . $data['wind_deg_text'] . ' ' . $data['wind_speed'] . ' ' . JText::_('MC') ?>

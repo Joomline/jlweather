@@ -76,7 +76,7 @@ class JlweatherViewJlweather extends JViewLegacy
 		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
 		$app = JFactory::getApplication();
 		$currentMenuName = isset($app->getMenu()->getActive()->title) ? $app->getMenu()->getActive()->title : '';
-		$title = $currentMenuName.' '.$params->get('title').' для города '.$city;		
+		$title = $currentMenuName.' '.$params->get('title').''. JText::_('COM_JL_WEATHER_FOR_CITY') .''.$city;		
 		$mainframe = JFactory::getDocument();
 		$mainframe->setTitle($title);
 

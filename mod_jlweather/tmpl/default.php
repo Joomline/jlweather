@@ -15,57 +15,61 @@ $fiveDays = $data['fiveDays'];
 $enablednow = count($current) > 0;
 $enabledFiveDays = count($fiveDays) > 0;
 ?>
+<style type="text/css">
+   .jlweather-mod-temp {font-size:16pt}
+   .jlweather-mod-other {font-size:8pt;margin-left:5px;}
+</style>
 <table>
 	<?php if ($enablednow) { ?>
 	<tr valign="middle">
 		<td><img src="<?php echo $current['icon']?>" alt="."></td>
-		<td nowrap><span style="font-size:16pt"><?php echo round($current['temp'],0); ?> <sup>o</sup>C </span></td>
-		<td nowrap><span style="font-size:8pt;margin-left:5px;"><?php echo $current['description']?></span></td>
+		<td nowrap><span class="jlweather-mod-temp"><?php echo round($current['temp'],0); ?> <sup>o</sup>C </span></td>
+		<td nowrap><span class="jlweather-mod-other"><?php echo $current['description']?></span></td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Давление: <?php echo $current['pressure']?> мм рт. ст.</span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_PRESSURE'); ?> <?php echo $current['pressure']?> <?php echo JText::_('JL_WEATHER_MM'); ?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Влажность: <?php echo $current['humidity']?> %</span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_HIMIDITY'); ?> <?php echo $current['humidity']?> <?php echo JText::_('JL_WEATHER_PROCENT'); ?></span>
 		</td>
 		</tr>
 
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Минимальная температура: <?php echo round($current['temp_min'],0)?> &deg;C</span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_MIN'); ?> <?php echo round($current['temp_min'],0)?> <?php echo JText::_('JL_WEATHER_TEMP_C'); ?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Максимальначя температура: <?php echo round($current['temp_max'],0)?> &deg;C</span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_MAX'); ?> <?php echo round($current['temp_max'],0)?> <?php echo JText::_('JL_WEATHER_TEMP_C'); ?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Видимость: <?php echo $current['visibility']?> м</span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_VISIBILITY'); ?> <?php echo $current['visibility']?> <?php echo JText::_('JL_WEATHER_TEMP_M'); ?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Скорость ветра: <?php echo $current['wind_speed']?> м/с</span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_WIND_SPEED'); ?> <?php echo $current['wind_speed']?> <?php echo JText::_('JL_WEATHER_TEMP_MS'); ?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Направление ветра: <?php echo $current['wind_deg_text']?></span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_WIND_DEG'); ?> <?php echo $current['wind_deg_text']?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Восход: <?php echo $current['sunrise']?></span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_SUNRISE'); ?> <?php echo $current['sunrise']?></span>
 		</td>
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span style="font-size:8pt;margin-left:5px;"> Закат: <?php echo $current['sunset']?></span>
+			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_SUNSET'); ?> <?php echo $current['sunset']?></span>
 		</td>
 		</tr>
 
@@ -80,19 +84,19 @@ $enabledFiveDays = count($fiveDays) > 0;
 			<?php
 			foreach ($v as $key => $daypart) {
 				?>
-			<tr style="font-size:8pt;margin-left:5px;">
+			<tr class="jlweather-mod-other">
 				<td colspan="2">
 					<?php echo $daypart['time']; ?>
 				</td>
 				<td>
 					<img src="<?php echo $daypart['icon']; ?>" alt=".">
 				</td>
-			<tr style="font-size:8pt;margin-left:5px;">
+			<tr class="jlweather-mod-other">
 			<tr>
 				<td colspan="3">
 					<div><?php echo JString::ucfirst($daypart['description']); ?></div>
-					<div>Температура: <?php echo round($daypart['temp_min'],0); ?> ... <?php echo round($daypart['temp_max'],0); ?>&deg;C</div>
-					<div>Ветер <?php echo $daypart['wind_deg_text']; ?>, <?php echo $daypart['wind_speed']; ?> м/с</div>
+					<div><?php echo JText::_('JL_WEATHER_TEMP'); ?> <?php echo round($daypart['temp_min'],0); ?> ... <?php echo round($daypart['temp_max'],0); ?><?php echo JText::_('JL_WEATHER_TEMP_C'); ?></div>
+					<div><?php echo JText::_('JL_WEATHER_WIND'); ?> <?php echo $daypart['wind_deg_text']; ?>, <?php echo $daypart['wind_speed']; ?> <?php echo JText::_('JL_WEATHER_TEMP_MS'); ?></div>
 				</td>
 			</tr>
 			<?php
@@ -107,11 +111,11 @@ $enabledFiveDays = count($fiveDays) > 0;
 	<?php } ?>
 	<tr>
 		<td colspan="2">
-			<a style="font-size:8pt" href="<?php echo JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>">Прогноз для <?php echo $params->get('city_name', ''); ?></a>
+			<a style="font-size:8pt" href="<?php echo JRoute::_('index.php?option=com_jlweather&Itemid='.$Itemid.'&cid='. $city)?>"><?php echo JText::_('JL_WEATHER_FOR_CITY'); ?> <?php echo $params->get('city_name', ''); ?></a>
 		</td>
 	</tr>
 		<div style="text-align: right;">
-			<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.ru/rasshirenija/komponenty/jlweather.html">Погода для joomla</a>
+			<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.ru/rasshirenija/komponenty/jlweather.html">JL Weather</a>
 		</div>
 </table>
 <?php
