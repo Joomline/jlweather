@@ -2,11 +2,12 @@
 /**
  * Mod JLweather
  *
- * @version 2.3
- * @author Anton Voynov (anton@joomline.ru)
- * @copyright (C) 2011 by Anton Voynov(http://www.joomline.ru)
+ * @version 2.5.0
+ * @author Anton Voynov (anton@joomline.ru), Vadim Kunitsyn vadim@joomline.ru, Arkadiy (a.sedelnikov@gmail.com)
+ * @copyright (C) 2010-2016 by Joomline (http://www.joomline.ru)
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
  **/
+ 
 // No direct access
 defined('_JEXEC') or die('Restricted access');
 

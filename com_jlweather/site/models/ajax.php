@@ -2,10 +2,10 @@
  /**
  * JLweather - components of the weather for joomla.
  *
- * @version 1.0
- * @package JLweather
- * @author Anton Voynov (anton@joomline.ru)
- * @copyright (C) 2010 by Anton Voynov(http://www.joomline.ru)
+ * @version 3.0.0
+ * @package JL Weather
+ * @author Artem Zhukov (artem@joomline.ru), Anton Voynov (anton@joomline.ru), Vadim Kunitsyn vadim@joomline.ru, Arkadiy (a.sedelnikov@gmail.com)
+ * @copyright (C) 2010-2016 by Joomline (http://www.joomline.ru)
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
  *
  * If you fork this to create your own project,
