@@ -58,7 +58,6 @@ $dayparts[21] = JText::_("EVENING");
                     <?php echo JText::_('WIND') . ' ' . $data['wind_deg_text'] . ' ' . $data['wind_speed'] . ' ' . JText::_('MC') ?>
                     <br/>
                     <?php echo JText::_('RELATIVE_HUMIDITY') . ' ' . $data['humidity'] ?> %<br/>
-<!--                    Видимость: --><?php //echo $data['visibility'] ?><!-- м<br/>-->
                     <?php echo JText::_('COM_JL_WEATHER_TEMP_SUNRISE') ?> <?php echo $data['sunrise'] ?><br/>
                     <?php echo JText::_('COM_JL_WEATHER_TEMP_SUNSET') ?> <?php echo $data['sunset'] ?><br/>
                 </td>

@@ -49,11 +49,6 @@ $enabledFiveDays = count($fiveDays) > 0;
 		</tr>
 		<tr>
 		<td nowrap colspan="3">
-			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_VISIBILITY'); ?> <?php echo $current['visibility']?> <?php echo JText::_('JL_WEATHER_TEMP_M'); ?></span>
-		</td>
-		</tr>
-		<tr>
-		<td nowrap colspan="3">
 			<span class="jlweather-mod-other"> <?php echo JText::_('JL_WEATHER_TEMP_WIND_SPEED'); ?> <?php echo $current['wind_speed']?> <?php echo JText::_('JL_WEATHER_TEMP_MS'); ?></span>
 		</td>
 		</tr>

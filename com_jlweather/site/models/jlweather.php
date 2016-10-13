@@ -117,21 +117,20 @@ class JlweatherModelJlweather extends JModelLegacy
                 return false;
             }
             $data['current'] = array(
-                'description' => $json["weather"][0]["description"],
-                'icon' => 'http://openweathermap.org/img/w/'.$json["weather"][0]["icon"].'.png',
-                'temp' => $json["main"]["temp"],
-                'pressure' => intval($json["main"]["pressure"]/1000*750.062),
-                'humidity' => $json["main"]["humidity"],
-                'temp_min' => $json["main"]["temp_min"],
-                'temp_max' => $json["main"]["temp_max"],
-//                'visibility' => $json["visibility"],
-                'wind_speed' => $json["wind"]["speed"],
-                'wind_deg' => $json["wind"]["deg"],
-                'wind_deg_text' => self::getTextWindDeg($json["wind"]["deg"]),
-                'clouds' => $json["clouds"]["all"],
-                'dt' => $json["dt"],
-                'sunrise' => self::getTextTime($json["sys"]["sunrise"], $hoffset),
-                'sunset' => self::getTextTime($json["sys"]["sunset"], $hoffset),
+                'description' =>        isset($json["weather"][0]["description"]) ? $json["weather"][0]["description"] : '',
+                'icon' =>               isset($json["weather"][0]["icon"]) ? 'http://openweathermap.org/img/w/'.$json["weather"][0]["icon"].'.png' : '',
+                'temp' =>               isset($json["main"]["temp"]) ? $json["main"]["temp"] : '',
+                'pressure' =>           isset($json["main"]["pressure"]) ? intval($json["main"]["pressure"]/1000*750.062) : '',
+                'humidity' =>           isset($json["main"]["humidity"]) ? $json["main"]["humidity"] : '',
+                'temp_min' =>           isset($json["main"]["temp_min"]) ? $json["main"]["temp_min"] : '',
+                'temp_max' =>           isset($json["main"]["temp_max"]) ? $json["main"]["temp_max"] : '',
+                'wind_speed' =>         isset($json["wind"]["speed"]) ? $json["wind"]["speed"] : '',
+                'wind_deg' =>           isset($json["wind"]["deg"]) ? $json["wind"]["deg"] : '',
+                'wind_deg_text' =>      isset($json["wind"]["deg"]) ? self::getTextWindDeg($json["wind"]["deg"]) : '',
+                'clouds' =>             isset($json["clouds"]["all"]) ? $json["clouds"]["all"] : '',
+                'dt' =>                 isset($json["dt"]) ? $json["dt"] : '',
+                'sunrise' =>            isset($json["sys"]["sunrise"]) ? self::getTextTime($json["sys"]["sunrise"], $hoffset) : '',
+                'sunset' =>             isset($json["sys"]["sunset"]) ? self::getTextTime($json["sys"]["sunset"], $hoffset) : '',
             );
 
         }
@@ -147,25 +146,25 @@ class JlweatherModelJlweather extends JModelLegacy
 
 
             foreach ($json["list"] as $v){
-                $date = date ('d-m-Y',$v['dt']);
-                $time = date ('H:i',$v['dt']);
+                $date = isset($v['dt']) ? date('d-m-Y',$v['dt']) : '';
+                $time = isset($v['dt']) ? date ('H:i',$v['dt']) : '';
                 $array = array(
-                    'date' => $date,
-                    'time' => $time,
-                    'temp' => $v["main"]['temp'],
-                    'temp_min' => $v["main"]['temp_min'],
-                    'temp_max' => $v["main"]['temp_max'],
-                    'pressure' => intval($v["main"]["pressure"]/1000*750.062),
-                    'sea_level' => $v["main"]['sea_level'],
-                    'grnd_level' => $v["main"]['grnd_level'],
-                    'humidity' => $v["main"]['humidity'],
-                    'temp_kf' => $v["main"]['temp_kf'],
-                    'description' => $v["weather"][0]['description'],
-                    'icon' => 'http://openweathermap.org/img/w/'.$v["weather"][0]['icon'].'.png',
-                    'clouds' => $v["clouds"]["all"],
-                    'wind_speed' => $v["wind"]["speed"],
-                    'wind_deg' => $v["wind"]["deg"],
-                    'wind_deg_text' => self::getTextWindDeg($v["wind"]["deg"])
+                    'date' =>           $date,
+                    'time' =>           $time,
+                    'temp' =>           isset($v["main"]['temp']) ? $v["main"]['temp'] : '',
+                    'temp_min' =>       isset($v["main"]['temp_min']) ? $v["main"]['temp_min'] : '',
+                    'temp_max' =>       isset($v["main"]['temp_max']) ? $v["main"]['temp_max'] : '',
+                    'pressure' =>       isset($v["main"]["pressure"]) ? intval($v["main"]["pressure"]/1000*750.062) : '',
+                    'sea_level' =>      isset($v["main"]['sea_level']) ? $v["main"]['sea_level'] : '',
+                    'grnd_level' =>     isset($v["main"]['grnd_level']) ? $v["main"]['grnd_level'] : '',
+                    'humidity' =>       isset($v["main"]['humidity']) ? $v["main"]['humidity'] : '',
+                    'temp_kf' =>        isset($v["main"]['temp_kf']) ? $v["main"]['temp_kf'] : '',
+                    'description' =>    isset($v["weather"][0]['description']) ? $v["weather"][0]['description'] : '',
+                    'icon' =>           isset($v["weather"][0]['icon']) ? 'http://openweathermap.org/img/w/'.$v["weather"][0]['icon'].'.png' : '',
+                    'clouds' =>         isset($v["clouds"]["all"]) ? $v["clouds"]["all"] : '',
+                    'wind_speed' =>     isset($v["wind"]["speed"]) ? $v["wind"]["speed"] : '',
+                    'wind_deg' =>       isset($v["wind"]["deg"]) ? $v["wind"]["deg"] : '',
+                    'wind_deg_text' =>  isset($v["wind"]["deg"]) ? self::getTextWindDeg($v["wind"]["deg"]) : ''
                 );
                 $data['fiveDays'][$date][$time] = $array;
             }
