@@ -7,7 +7,7 @@
 	<authorUrl>http://www.joomline.ru</authorUrl>
 	<copyright>Copyright 2010-2016 JoomLine.ru All rights reserved</copyright>
 	<license>GNU/GPL v.3 or later.</license>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<description>COM_JLWEATHER_XML_DESCRIPTION</description>
 	
 	<files folder="site">
