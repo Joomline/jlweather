@@ -2,7 +2,7 @@
 /**
  * Mod JLweather
  *
- * @version 2.5.0
+ * @version 2.5.1
  * @author Anton Voynov (anton@joomline.ru), Vadim Kunitsyn vadim@joomline.ru, Arkadiy (a.sedelnikov@gmail.com)
  * @copyright (C) 2010-2016 by Joomline (http://www.joomline.ru)
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
@@ -58,31 +58,31 @@ class modJLWeatherHelper
     {
         $text = '';
         if($windDeg >= 0 && $windDeg < 22.5){
-            $text = 'северный';
+            $text = JText::_('JL_WEATHER_FOR_NORTHEN');
         }
         else if($windDeg >= 22.5 && $windDeg < 67.5){
-            $text = 'северо-восточный';
+            $text = JText::_('JL_WEATHER_FOR_NS');
         }
         else if($windDeg >= 67.5 && $windDeg < 112.5){
-            $text = 'восточный';
+            $text = JText::_('JL_WEATHER_FOR_EAST');
         }
         else if($windDeg >= 112.5 && $windDeg < 157.5){
-            $text = 'юго-восточный';
+            $text = JText::_('JL_WEATHER_FOR_SS');
         }
         else if($windDeg >= 157.5 && $windDeg < 202.5){
-            $text = 'южный';
+            $text = JText::_('JL_WEATHER_FOR_SS');
         }
         else if($windDeg >= 202.5 && $windDeg < 247.5){
-            $text = 'юго-западный';
+            $text = JText::_('JL_WEATHER_FOR_S');
         }
         else if($windDeg >= 247.5 && $windDeg < 292.5){
-            $text = 'западный';
+            $text = JText::_('JL_WEATHER_FOR_W');
         }
         else if($windDeg >= 292.5 && $windDeg < 337.5){
-            $text = 'северо-западный';
+            $text = JText::_('JL_WEATHER_FOR_NW');
         }
         else if($windDeg >= 337.5 && $windDeg <= 360){
-            $text = 'северный';
+            $text = JText::_('JL_WEATHER_FOR_N');
         }
 
         return $text;
@@ -168,5 +168,3 @@ class modJLWeatherHelper
         return $data;
     }
 }
-
-
