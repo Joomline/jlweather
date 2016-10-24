@@ -73,10 +73,10 @@ class JlweatherViewJlweather extends JViewLegacy
 		$this->assignRef( 'forecast',	$forecast );
 		$this->assignRef( 'daysOfWeek',	$daysOfWeek );
 
-		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
+		$gettitle = $params->get('title')!='' ? $params->get('title') : JText::_('COM_JL_WEATHER_TITLE');
 		$app = JFactory::getApplication();
 		$currentMenuName = isset($app->getMenu()->getActive()->title) ? $app->getMenu()->getActive()->title : '';
-		$title = $currentMenuName.' '.$params->get('title').''. JText::_('COM_JL_WEATHER_FOR_CITY') .''.$city;		
+		$title = $currentMenuName.' '.$params->get('title').''. JText::_('COM_JL_WEATHER_FOR_CITY') .' '.$city;		
 		$mainframe = JFactory::getDocument();
 		$mainframe->setTitle($title);
 
