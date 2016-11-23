@@ -26,7 +26,7 @@ class JlweatherViewJlweather extends JViewLegacy
 
 		$cache = JFactory::getCache('com_jlweather');
 		$cache->setCaching(1);
-		$cache->setLifeTime($params->get('cachetime')*60);
+		$cache->setLifeTime($params->get('cachetime')*3600);
 		
 		$model = $this->getModel();
 		$city_list = explode(",",$tmp_city_list);
