@@ -8,7 +8,7 @@
     <license>GNU/GPL v.3 or later.</license>
 	<packager>JoomLine</packager>
 	<packagerurl>http://joomline.ru</packagerurl>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <description>Packet forecast JL Weather</description>
 <files>
         <file type="component" id="com_jlweather" client="site">com_jlweather.zip</file>

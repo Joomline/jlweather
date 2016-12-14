@@ -103,5 +103,5 @@ $dayparts[21] = JText::_("EVENING");
 
 <div style="text-align: right;">
     <a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; "
-       target="_blank" href="http://joomline.ru/">Расширения Joomla</a>
+       target="_blank" href="http://joomline.net/">Расширения Joomla</a>
 </div>

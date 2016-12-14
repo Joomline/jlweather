@@ -110,7 +110,7 @@ $enabledFiveDays = count($fiveDays) > 0;
 		</td>
 	</tr>
 		<div style="text-align: right;">
-			<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.ru/rasshirenija/komponenty/jlweather.html">JL Weather</a>
+			<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.net">Расширения Joomla</a>
 		</div>
 </table>
 <?php
