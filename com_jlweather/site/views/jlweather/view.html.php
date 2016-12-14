@@ -73,12 +73,25 @@ class JlweatherViewJlweather extends JViewLegacy
 		$this->assignRef( 'forecast',	$forecast );
 		$this->assignRef( 'daysOfWeek',	$daysOfWeek );
 
-		$gettitle = $params->get('title')!='' ? $params->get('title') : 'Прогноз погоды';
+		$gettitle = $params->get('title')!='' ? $params->get('title') : JText::_('COM_JL_WEATHER_TITLE');
 		$app = JFactory::getApplication();
-		$currentMenuName = isset($app->getMenu()->getActive()->title) ? $app->getMenu()->getActive()->title : '';
-		$title = $currentMenuName.' '.$params->get('title').''. JText::_('COM_JL_WEATHER_FOR_CITY') .''.$city;		
-		$mainframe = JFactory::getDocument();
-		$mainframe->setTitle($title);
+		$doc = JFactory::getDocument();
+		$menu = $app->getMenu()->getActive();
+
+        $currentMenuName = isset($menu->title) ? $menu->title : '';
+        $title = $currentMenuName.' '. JText::_('COM_JL_WEATHER_FOR_CITY') .' '.$city;
+
+        $doc->setTitle($title);
+
+        if ($menu->params->get('menu-meta_keywords', ''))
+        {
+            $doc->setMetadata('keywords', $menu->params->get('menu-meta_keywords', ''));
+        }
+
+        if ($menu->params->get('menu-meta_description', ''))
+        {
+            $doc->setDescription($menu->params->get('menu-meta_description', ''));
+        }
 
 		$pathway = $app->getPathway(); 
 		$pathway->addItem(JText::_('FORECAST_CITY') .$this->city, '/component/jlweather/');
