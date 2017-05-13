@@ -118,7 +118,7 @@ class JlweatherModelJlweather extends JModelLegacy
             }
             $data['current'] = array(
                 'description' =>        isset($json["weather"][0]["description"]) ? $json["weather"][0]["description"] : '',
-                'icon' =>               isset($json["weather"][0]["icon"]) ? 'http://openweathermap.org/img/w/'.$json["weather"][0]["icon"].'.png' : '',
+                'icon' =>               isset($json["weather"][0]["icon"]) ? 'https://openweathermap.org/img/w/'.$json["weather"][0]["icon"].'.png' : '',
                 'temp' =>               isset($json["main"]["temp"]) ? $json["main"]["temp"] : '',
                 'pressure' =>           isset($json["main"]["pressure"]) ? intval($json["main"]["pressure"]/1000*750.062) : '',
                 'humidity' =>           isset($json["main"]["humidity"]) ? $json["main"]["humidity"] : '',
@@ -160,7 +160,7 @@ class JlweatherModelJlweather extends JModelLegacy
                     'humidity' =>       isset($v["main"]['humidity']) ? $v["main"]['humidity'] : '',
                     'temp_kf' =>        isset($v["main"]['temp_kf']) ? $v["main"]['temp_kf'] : '',
                     'description' =>    isset($v["weather"][0]['description']) ? $v["weather"][0]['description'] : '',
-                    'icon' =>           isset($v["weather"][0]['icon']) ? 'http://openweathermap.org/img/w/'.$v["weather"][0]['icon'].'.png' : '',
+                    'icon' =>           isset($v["weather"][0]['icon']) ? 'https://openweathermap.org/img/w/'.$v["weather"][0]['icon'].'.png' : '',
                     'clouds' =>         isset($v["clouds"]["all"]) ? $v["clouds"]["all"] : '',
                     'wind_speed' =>     isset($v["wind"]["speed"]) ? $v["wind"]["speed"] : '',
                     'wind_deg' =>       isset($v["wind"]["deg"]) ? $v["wind"]["deg"] : '',
