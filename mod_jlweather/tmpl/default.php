@@ -2,9 +2,9 @@
 /**
  * Mod JLweather
  *
- * @version 2.5.0
+ * @version 2.5.2
  * @author Anton Voynov (anton@joomline.ru), Vadim Kunitsyn vadim@joomline.ru, Arkadiy (a.sedelnikov@gmail.com)
- * @copyright (C) 2010-2016 by Joomline (http://www.joomline.ru)
+ * @copyright (C) 2010-2017 by Joomline (http://www.joomline.ru)
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
  **/
 
@@ -110,7 +110,7 @@ $enabledFiveDays = count($fiveDays) > 0;
 		</td>
 	</tr>
 		<div style="text-align: right;">
-			<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="http://joomline.net">Расширения Joomla</a>
+			<a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; " target="_blank" href="https://joomline.net">Расширения Joomla</a>
 		</div>
 </table>
 <?php

@@ -2,10 +2,10 @@
 /**
  * JLweather - components of the weather for joomla.
  *
- * @version 3.0.0
+ * @version 3.0.2
  * @package JL Weather
  * @author Artem Zhukov (artem@joomline.ru), Anton Voynov (anton@joomline.ru), Vadim Kunitsyn vadim@joomline.ru, Arkadiy (a.sedelnikov@gmail.com)
- * @copyright (C) 2010-2016 by Joomline (http://www.joomline.ru)
+ * @copyright (C) 2010-2017 by Joomline (http://www.joomline.ru)
  * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
  *
  * If you fork this to create your own project,
@@ -103,5 +103,5 @@ $dayparts[21] = JText::_("EVENING");
 
 <div style="text-align: right;">
     <a style="text-decoration:none; color: #c0c0c0; font-family: arial,helvetica,sans-serif; font-size: 5pt; "
-       target="_blank" href="http://joomline.net/">Расширения Joomla</a>
+       target="_blank" href="https://joomline.net/">Расширения Joomla</a>
 </div>
