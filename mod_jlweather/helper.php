@@ -110,7 +110,7 @@ class modJLWeatherHelper
                 //
                 $data['current'] = array(
                     'description' => $json["weather"][0]["description"],
-                    'icon' => 'http://openweathermap.org/img/w/'.$json["weather"][0]["icon"].'.png',
+                    'icon' => 'https://openweathermap.org/img/w/'.$json["weather"][0]["icon"].'.png',
                     'temp' => $json["main"]["temp"],
                     'pressure' => intval($json["main"]["pressure"]/1000*750.062),
                     'humidity' => $json["main"]["humidity"],
@@ -152,7 +152,7 @@ class modJLWeatherHelper
                         'humidity' => $v["main"]['humidity'],
                         'temp_kf' => $v["main"]['temp_kf'],
                         'description' => $v["weather"][0]['description'],
-                        'icon' => 'http://openweathermap.org/img/w/'.$v["weather"][0]['icon'].'.png',
+                        'icon' => 'https://openweathermap.org/img/w/'.$v["weather"][0]['icon'].'.png',
                         'clouds' => $v["clouds"]["all"],
                         'wind_speed' => $v["wind"]["speed"],
                         'wind_deg' => $v["wind"]["deg"],
