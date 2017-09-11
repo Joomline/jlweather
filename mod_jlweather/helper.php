@@ -92,11 +92,11 @@ class modJLWeatherHelper
     {
         $cache = JFactory::getCache('mod_jlweather', '');
         $cache->setCaching(1);
-        $cache->setLifeTime($params->get('cachetime') * 3600);
+        $cache->setLifeTime($params->get('cachetime') * 60);
         if (!($data = $cache->get('weather'.$moduleId)))
         {
 
-            $hoffset = $params->get('hoffset',4) * 3600;
+            $hoffset = $params->get('hoffset') * 60;
             $enablednow = $params->get('enablednow',0);
             $enabledFiveDays = $params->get('enabled_five_days',0);
 
