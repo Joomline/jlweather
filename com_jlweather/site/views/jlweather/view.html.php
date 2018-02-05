@@ -16,11 +16,17 @@ jimport( 'joomla.application.component.view');
 
 class JlweatherViewJlweather extends JViewLegacy
 {
+	protected $Itemid;
+
 	function display($tpl = null)
 	{
 		$mainframe = JFactory::getApplication();
 		$params = JcomponentHelper::getParams('com_jlweather');
 		$citymenu = $mainframe->getMenu()->getActive()->params;
+
+		$menus = JFactory::getApplication()->getMenu();
+		$items = $menus->getItems('link', 'index.php?option=com_jlweather&view=jlweather');
+		$this->Itemid = (count($items) > 0) ? $items[0]->id : 0;
 
 		$tmp_city_list = $citymenu->get('citymenu')!='' ? $citymenu->get('citymenu') : $params->get('citylist');
 
