@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5" method="upgrade">
 	<name>JLWeather</name>
-	<creationDate>23.05.2017</creationDate>
+	<creationDate>05.02.2018</creationDate>
 	<author>JoomLine</author>
 	<authorEmail>sale@joomline.ru</authorEmail>
-	<authorUrl>http://www.joomline.ru</authorUrl>
-	<copyright>Copyright 2010-2017 JoomLine.ru All rights reserved</copyright>
+	<authorUrl>https://joomline.ru</authorUrl>
+	<copyright>Copyright 2010-2018 JoomLine.ru All rights reserved</copyright>
 	<license>GNU/GPL v.3 or later.</license>
-	<version>3.0.3</version>
+	<version>3.0.4</version>
 	<description>COM_JLWEATHER_XML_DESCRIPTION</description>
 	
 	<files folder="site">

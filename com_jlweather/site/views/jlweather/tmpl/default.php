@@ -2,7 +2,7 @@
 /**
  * JLweather - components of the weather for joomla.
  *
- * @version 3.0.2
+ * @version 3.0.4
  * @package JL Weather
  * @author Artem Zhukov (artem@joomline.ru), Anton Voynov (anton@joomline.ru), Vadim Kunitsyn vadim@joomline.ru, Arkadiy (a.sedelnikov@gmail.com)
  * @copyright (C) 2010-2017 by Joomline (http://www.joomline.ru)

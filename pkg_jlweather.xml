@@ -3,12 +3,12 @@
     <name>com_jlweather</name>
     <author>Joomline</author>
 	<packagename>jlweather</packagename>
-    <creationDate>20.09.2016</creationDate>
-    <copyright>© 2010-2016. All rights reserved.</copyright>
+    <creationDate>05.02.2018</creationDate>
+    <copyright>© 2010-2018. All rights reserved.</copyright>
     <license>GNU/GPL v.3 or later.</license>
 	<packager>JoomLine</packager>
-	<packagerurl>http://joomline.ru</packagerurl>
-    <version>3.0.1</version>
+	<packagerurl>https://joomline.ru</packagerurl>
+    <version>3.0.4</version>
     <description>Packet forecast JL Weather</description>
 <files>
         <file type="component" id="com_jlweather" client="site">com_jlweather.zip</file>
